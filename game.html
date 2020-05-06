@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Game</title>
+</head>
+<body onload="__init();">
+    <canvas id="canvas" width="500" height="500"><p>not support browser</p></canvas>
+    <script src="http://requirejs.org/docs/release/2.3.2/comments/require.js"></script>
+    <script>
+        function __init() {
+            require(["scripts/gl-matrix.js"]);
+            require(["scripts/graphic.js"]);
+            require(["scripts/gameManager.js"]);
+            require(["scripts/background.js"]);
+            require(["scripts/player.js"]);
+            require(["scripts/monster.js"]);
+        }
+    </script>
+</body>
+</html>

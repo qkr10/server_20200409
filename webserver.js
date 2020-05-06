@@ -1,14 +1,21 @@
-const http = require('http');
+const express = require('express');
+const app = express();
+const server = require('http').Server(app);
+//const io = require('socket.io')(server);
 
 const hostname = '127.0.0.1';
 const port = 3000;
 
-const server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World');
+app.get('/', (req, res) => {
+	res.sendFile(__dirname + '/game.html');
 });
 
-server.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}/`);
+app.use('/scripts', express.static('outScripts'));
+
+server.listen(port, () => {
+	console.log(`Server running at http://${hostname}:${port}/`);
 });
+
+// io.on('connection', (socket) => {
+// 	console.log('connection');
+// });
